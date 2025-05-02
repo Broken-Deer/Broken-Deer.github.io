@@ -1,11 +1,11 @@
 # Site settings
-title: "🌸🐳 \  HynDuf \  👋"
-SEOTitle: HynDuf Blog
+title: "Broken Deer's Blog"
+SEOTitle: Broken Deer Blog
 header-img: img/hollow-knight.png
-email: hynduf@gmail.com
+email: kxscluabcbook@outlook.com
 description: "May it get me? 🌸"
-keyword: "hynduf, @hynduf, HynDuf's Blog, CP, Arch Linux, Obsidian"
-url: "https://hynduf.github.io" # your host, for absolute URL
+keyword: "brokendeer, @brokendeer, brokendeer's Blog, Minecraft"
+url: "https://broken-deer.github.io" # your host, for absolute URL
 baseurl: "" # for example, '/blog' if your blog hosted on 'host/blog'
 
 # Publish posts or collection documents with a future date.
@@ -13,10 +13,7 @@ future: true
 
 # SNS settings
 RSS: false
-github_username: hynduf
-twitter_username: HynDuf
-facebook_username: HynDuf
-linkedin_username: hynduf
+github_username: Broken-Deer
 
 # Build settings
 # from 2016, 'pygments' is unsupported on GitHub Pages. Use 'rouge' for highlighting instead.
