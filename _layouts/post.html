@@ -64,6 +64,20 @@ layout: default
                 <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
                 <!-- 网易云跟帖 评论框 end -->
                 {% endif %}
+<div id="comment-container"></div>
+<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+<script src="https://cdn.jsdelivr.net/gh/theme-next/theme-next-gitment@1/gitment.browser.js"></script>
+<script>
+var gitment = new Gitment({
+owner: 'Broken-Deer',
+repo: 'Broken-Deer.github.io',
+oauth: {
+    client_id: 'Ov23limSvdoi96zsoiY7',
+    client_secret: '8759687374fbd37981eead97e6f2e42d4ef2c1a8',
+},
+})
+gitment.render('comment-container')
+</script>
             </div>  
 
     <!-- Side Catalog Container -->
