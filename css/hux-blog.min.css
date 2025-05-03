@@ -1972,3 +1972,8 @@ img::-moz-selection {
 .no-scroll {
   overflow-y: hidden;
 }
+
+pre {
+  border: 1px solid #eff1f54e !important;
+  background: #1e1e2e !important;
+}
