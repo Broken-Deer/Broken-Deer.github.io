@@ -13,20 +13,6 @@ nav-style: 'invert'
     {{ about_en | markdownify }}
 </div>
 
-<div id="comment-container"></div>
-<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
-<script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
-<script>
-var gitment = new Gitment({
-owner: 'Broken-Deer',
-repo: 'Broken-Deer.github.io',
-oauth: {
-    client_id: 'Ov23limSvdoi96zsoiY7',
-    client_secret: '8759687374fbd37981eead97e6f2e42d4ef2c1a8',
-},
-})
-gitment.render('comment-container')
-</script>
 
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
