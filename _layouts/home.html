@@ -5,13 +5,27 @@ layout: default
 <div class="animated-text">
     <img src="img/catppuccin-cat-footer.png" alt="cat-footer">
     <div>
-        <i>"In the end, would it all be worth it?"</i> 
-        <p>~ 🌸🐳 HynDuf</p>
+        <i id="text-content1"></i> 
+        <p id="text-content2"></p>
         <div class='header-line'>
             <strong> ━━━━━━  ❖  ━━━━━━ </strong>
         </div>
 </div>
 </div>
+<script>
+async function get(url) {
+    let resp = await fetch(url);
+    let result = await resp.text();
+	return result;
+    }
+    get('https://v1.hitokoto.cn/').then(data => {
+    let element1 = document.getElementById('text-content1');
+    let element2 = document.getElementById('text-content2');
+    let parsedData = JSON.parse(data);
+    element1.innerText = parsedData.hitokoto;
+    element2.innerText = "——" + parsedData.from;
+});
+</script>
 <!-- Main Content -->
 <div class="container">
 <div class="row">

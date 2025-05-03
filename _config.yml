@@ -53,23 +53,9 @@ kramdown:
       line_numbers: true
       start_line: 1
 
-# Disqus settings
-# disqus_username: hynduf
-
-# Netease settings
-netease_comment: false
-
-# Analytics settings
-# Baidu Analytics
-# ba_track_id: [your track id]
-
-# Google Analytics
-ga_track_id: "UA-49627206-1" # Format: UA-xxxxxx-xx
-ga_domain: huangxuan.me
-
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
-sidebar-about-description: "how far down the <br/> rabbit holes 🐇, <br/> would it take me? 🤔"
+sidebar-about-description: "https://avatars.githubusercontent.com/u/64290747?v=4"
 sidebar-avatar: https://github.com/hynduf.png # use absolute URL, seeing it's used in both `/` and `/about/`
 
 # Featured Tags
@@ -86,6 +72,4 @@ page-mathjax: false
 # Friends
 friends:
   [
-    { title: "Trí Phan", href: "https://triphan2k3.github.io/" },
-    { title: "Vanhger", href: "https://vanhger.github.io/" },
-  ]
+    { title: "星星落落", href: "https://github.com/xxll222557" },
