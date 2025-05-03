@@ -50,8 +50,7 @@ kramdown:
     span:
       line_numbers: false
     block:
-      line_numbers: true
-      start_line: 1
+      disable: true
 
 # Sidebar settings
 sidebar: true # whether or not using Sidebar.
