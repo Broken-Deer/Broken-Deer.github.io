@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "[备忘录] 如何备份安卓字库"
-subtitle: "直接使用脚本备份更简单！"
+subtitle: "使用命令而不是第三方软件备份"
 author: "Broken Deer"
 header-style: text
 tags:
@@ -9,32 +9,27 @@ tags:
   - Android
 ---
 
-# [备忘录] 如何备份安卓字库
+> https://mrwei95.github.io/2024/08/16/Backup-Flash-Memory/
 
 ## 备份
 
 1. 在 `sdcard` 分区中创建 `000_Backup` 目录用于保存备份文件
-
 ```bash
 mkdir /sdcard/000_Backup
 cd /sdcard/000_Backup
 ```
-
 2. 生成脚本
 ```bash
 ls -1 /dev/block/bootdevice/by-name | grep -ixvE "userdata|cache" | while IFS= read -r name; do echo "dd if=/dev/block/bootdevice/by-name/$name of=/sdcard/000_Backup/$name.img" >> /sdcard/000_Backup/001_Backup.sh; echo "fastboot flash $name $name.img" >> /sdcard/000_Backup/002_Restore.sh; done
 ```
-
 3. 修改权限
 ```bash
 chmod +x /sdcard/000_Backup/001_Backup.sh
 ```
-
 4. 运行脚本
 ```bash
 sudo /sdcard/000_Backup/001_Backup.sh
 ```
-
 5. 把 `000_Backup` 转移到安全的地方
 
 ## 恢复
