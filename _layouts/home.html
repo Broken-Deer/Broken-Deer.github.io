@@ -5,8 +5,9 @@ layout: default
 <div class="animated-text">
     <img src="img/catppuccin-cat-footer.png" alt="cat-footer">
     <div>
-        <i id="text-content1"></i> 
-        <p id="text-content2"></p>
+        <i id="text-content1"></i>
+	<br>
+        <i id="text-content2"></i>
         <div class='header-line'>
             <strong> ━━━━━━  ❖  ━━━━━━ </strong>
         </div>
@@ -23,7 +24,7 @@ async function get(url) {
     let element2 = document.getElementById('text-content2');
     let parsedData = JSON.parse(data);
     element1.innerText = parsedData.hitokoto;
-    element2.innerText = "——" + parsedData.from;
+    element2.innerText = "—— " + parsedData.from;
 });
 </script>
 <!-- Main Content -->
