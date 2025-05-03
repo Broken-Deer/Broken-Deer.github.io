@@ -91,16 +91,13 @@ layout: default
 
                 <!-- Featured Tags -->
                 {% include featured-tags.html bottom=true %}
-
-                <!-- Friends Blog -->
-                {% include friends.html %}
             </div>
         </div>
     </div>
 </article>
 
 <!-- add support for mathjax by voleking-->
-{% if page.mathjax %}
+{% if site.page-mathjax %}
   {% include mathjax_support.html %}
 {% endif %}
 
