@@ -6,6 +6,7 @@ author: "Broken Deer"
 header-style: text
 tags:
   - Technical
+  - Android
 ---
 
 # [备忘录] 如何备份安卓字库
