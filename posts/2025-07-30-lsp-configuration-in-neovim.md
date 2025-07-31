@@ -1,17 +1,16 @@
 ---
 title: "在 Neovim 0.11 中配置 LSP"
-description: 
-  - Neovim 0.11 更新后，简化了lsp配置流程，不再需要 nvim-lspconfig。本文通过实际配置，介绍如何启用 LSP 客户端、安装语言服务器、配置诊断提示与快捷键，并推荐使用 blink.cmp 和 lazydev 等插件，构建功能强大且响应迅速的开发环境。
+description:
+    - Neovim 0.11 更新后，简化了lsp配置流程，不再需要 nvim-lspconfig。本文通过实际配置，介绍如何启用 LSP 客户端、安装语言服务器、配置诊断提示与快捷键。
 author: "Broken-Deer"
 date: "2025-07-30"
 tags:
-  - Technical
-  - Tutor
-  - Neovim
+    - Technical
+    - Tutor
+    - Neovim
 ---
 
 # 在 Neovim 0.11 中配置 LSP
-
 
 Neovim 0.11 极大地简化了 LSP 配置。本文将带你一步步在 Neovim 0.11 中启用 LSP。
 
@@ -26,37 +25,40 @@ LSP 的全称是 Language Server Protocol，它是一个协议，定义了语言
 其中，服务器负责接收编辑器的命令，并将结果返回给编辑器，LSP 在这里就规定了编辑器发送命令的方式，以及服务器进行回应的方式。
 
 我们看个例子，这里假设你的编辑器就是客户端：当你想跳转到某处，就像你在VS Code里按住Ctrl点击某个东西时那样，你的编辑器会问服务器这个东西的引用在哪里，请求看起来长这样：
+
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "method": "textDocument/definition",
-  "params": {
-    "textDocument": {
-      "uri": "file:///home/user/project/main.py"
-    },
-    "position": {
-      "line": 42,
-      "character": 10
+    "jsonrpc": "2.0",
+    "id": 1,
+    "method": "textDocument/definition",
+    "params": {
+        "textDocument": {
+            "uri": "file:///home/user/project/main.py"
+        },
+        "position": {
+            "line": 42,
+            "character": 10
+        }
     }
-  }
 }
 ```
 
 然后，语言服务器会进行一系列处理，并返回它的位置。响应看起来像这样：
+
 ```json
 {
-  "jsonrpc": "2.0",
-  "id": 1,
-  "result": {
-    "uri": "file:///home/user/project/lib/utils.py",
-    "range": {
-      "start": { "line": 5, "character": 0 },
-      "end": { "line": 5, "character": 12 }
+    "jsonrpc": "2.0",
+    "id": 1,
+    "result": {
+        "uri": "file:///home/user/project/lib/utils.py",
+        "range": {
+            "start": { "line": 5, "character": 0 },
+            "end": { "line": 5, "character": 12 }
+        }
     }
-  }
 }
 ```
+
 然后，编辑器处理这个响应，执行跳转操作。
 
 LSP 是一个通用的协议，因此任何实现 LSP 的编辑器都可以像这样与语言服务器交流，实现该协议的语言服务器也可以被用作任何实现此协议的编辑器。
@@ -230,11 +232,13 @@ vim.keymap.set(
 ```
 
 在`init.lua`中，加入这一行：
+
 ```lua
 require("lsp")
 ```
 
 接下来，你需要一个自动补全插件 [blink.cmp](https://github.com/Saghen/blink.cmp),和内置的相比，它有更智能的排序，以及更快的响应。下面给出我的配置，你可以按照官方文档自行配置，使它更贴合自己的使用习惯，这里推荐观看[帕特里柯基的视频](https://www.bilibili.com/video/BV1gDETzTEoo)。
+
 ```lua
 -- Lua/plugins/blink-cmp.lua
 local function has_words_before()
@@ -320,6 +324,7 @@ return {
 ### 3.1 客户端配置
 
 将以下内容写入 `~/.config/nvim/lsp/lua_ls.lua`：
+
 ```lua
 return {
   cmd = { 'lua-language-server' },
@@ -434,7 +439,6 @@ vim.lsp.enable('lua_ls')
 
 现在虽然 LSP 已经能用了，但是有一堆 undefined，自动补全也不支持 Neovim 自带的函数。[lazydev](https://github.com/folke/lazydev.nvim) 插件可以为lua语言提供这些功能，其他有些语言也有相应的功能增强插件，比如 [mrcjkb/rustaceanvim](https://github.com/mrcjkb/rustaceanvim) 用于 Rust 语言。
 
-
 ::: danger
 注意：如果使用此插件，请删除 `lsp.lua` 中的 `vim.lsp.enable('lua_ls')`，因为插件会自动调用这个函数.
 :::
@@ -464,4 +468,3 @@ vim.lsp.enable('lua_ls')
 <p style="text-align: center">
 希望这篇文章能帮到你~
 </p>
-

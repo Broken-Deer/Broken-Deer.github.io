@@ -1,22 +1,22 @@
 {
-  "devDependencies": {
-    "@types/node": "^24.1.0",
-    "less": "^4.4.0",
-    "vitepress": "^1.6.3"
-  },
-  "scripts": {
-    "docs:dev": "vitepress dev",
-    "docs:build": "vitepress build",
-    "docs:preview": "vitepress preview"
-  },
-  "dependencies": {
-    "@catppuccin/vitepress": "^0.1.2",
-    "@fortawesome/fontawesome-svg-core": "^7.0.0",
-    "@fortawesome/free-brands-svg-icons": "^7.0.0",
-    "@fortawesome/free-regular-svg-icons": "^7.0.0",
-    "@fortawesome/free-solid-svg-icons": "^7.0.0",
-    "@fortawesome/vue-fontawesome": "^3.1.1",
-    "@giscus/vue": "^3.1.1",
-    "gray-matter": "^4.0.3"
-  }
+    "devDependencies": {
+        "@types/node": "^24.1.0",
+        "less": "^4.4.0",
+        "vitepress": "^1.6.3"
+    },
+    "scripts": {
+        "docs:dev": "vitepress dev",
+        "docs:build": "vitepress build",
+        "docs:preview": "vitepress preview"
+    },
+    "dependencies": {
+        "@catppuccin/vitepress": "^0.1.2",
+        "@fortawesome/fontawesome-svg-core": "^7.0.0",
+        "@fortawesome/free-brands-svg-icons": "^7.0.0",
+        "@fortawesome/free-regular-svg-icons": "^7.0.0",
+        "@fortawesome/free-solid-svg-icons": "^7.0.0",
+        "@fortawesome/vue-fontawesome": "^3.1.1",
+        "@giscus/vue": "^3.1.1",
+        "gray-matter": "^4.0.3"
+    }
 }

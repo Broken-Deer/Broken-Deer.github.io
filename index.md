@@ -26,7 +26,6 @@ onMounted(async () => {
 })
 </script>
 
-
 <script setup lang="ts">
 import { data as posts } from './data/posts.data.mts'
 
