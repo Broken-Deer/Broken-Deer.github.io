@@ -2,7 +2,6 @@
 title: "在 Neovim 0.11 中配置 LSP"
 description: 
   - Neovim 0.11 更新后，简化了lsp配置流程，不再需要 nvim-lspconfig。本文通过实际配置，介绍如何启用 LSP 客户端、安装语言服务器、配置诊断提示与快捷键，并推荐使用 blink.cmp 和 lazydev 等插件，构建功能强大且响应迅速的开发环境。
-subtitle: "再见，nvim-lspconfig"
 author: "Broken-Deer"
 date: "2025-07-30"
 tags:
@@ -391,12 +390,18 @@ vim.lsp.enable('lua_ls')
       --  - filetypes (table): Override the default list of associated filetypes for the server
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
       --  - settings (table): Override the default settings passed when initializing the server.
-      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/             local servers = {
+      --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
+      local servers = {
         lua_ls = {},
-      }                                                             local formatting_tools = {
-        "stylua",                                                     "prettier",
-      }                                                             local dap = { }                                                             local ensure_installed = vim.list_extend(vim.tbl_keys(servers), formatting_tools)                                           ensure_installed = vim.list_extend(ensure_installed, dap)                                                                   require("mason").setup {}
-      require("mason-lspconfig").setup {                              automatic_installation = false,
+      }
+      local formatting_tools = {
+        "stylua",
+      }
+      local ensure_installed = vim.list_extend(vim.tbl_keys(servers), formatting_tools)
+      ensure_installed = vim.list_extend(ensure_installed, dap)
+      require("mason").setup {}
+      require("mason-lspconfig").setup {
+      automatic_installation = false,
         automatic_enable = {
           "lua_ls",
         },
