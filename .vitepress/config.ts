@@ -10,6 +10,16 @@ const RSS: RSSOptions = {
     copyright: "Copyright © 2025-present Broken-Deer. All rights reserved.",
 }
 export default defineConfig({
+    head: [
+        [
+            "script",
+            {
+                "data-cf-beacon": JSON.stringify({ token: "c55e0a3a51394fb7b352930ffb89ee45" }),
+                src: "https://static.cloudflareinsights.com/beacon.min.js",
+                defer: true,
+            },
+        ],
+    ],
     title: "Broken-Deer's Blog",
     description: "Broken-Deer 的垃圾堆",
     markdown: {

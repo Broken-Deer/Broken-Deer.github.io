@@ -1,5 +1,6 @@
 ---
-title: Go to random page
+title: Loading...
+author: Broken-Deer
 publish: false
 ---
 
