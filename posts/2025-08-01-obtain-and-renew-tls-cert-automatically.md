@@ -24,16 +24,19 @@ tags:
 Certbot 在不同 Linux 发行版上的安装方式或许有所不同，这里介绍 Debian 和 Fedora 上的安装方法，如果使用其他发行版，可以参考[官方的文档](https://eff-certbot.readthedocs.io/en/stable/install.html#installation)。
 
 Debian：
+
 ```shell
 sudo apt install python3-certbot python3-certbot-dns-cloudflare
 ```
 
 Fedora：
+
 ```shell
 sudo dnf install certbot python3-certbot-dns-cloudflare
 ```
 
 其中 `python3-certbot-dns-cloudflare` 用于完成域名所有权验证。
+
 ## 创建 Cloudflare API 令牌
 
 <script setup lang="ts">
@@ -91,7 +94,9 @@ sudo certbot certonly \
 -d "v6bkd.dpdns.org" \
 -d "*.v6bkd.dpdns.org"
 ```
+
 参数解释：
+
 - `certonly`：只申请而不安装证书，之后可以手动安装到 Nginx 服务器
 - `--dns-cloudflare`： 指定 DNS 服务提供商为 Cloudflare
 - `--dns-cloudflare-credentials`：指定 Cloudflare 凭据路径
@@ -100,12 +105,14 @@ sudo certbot certonly \
 - `-d`：你想要申请证书的域名，可以有多个 `-d`，支持通配符域名
 
 运行此命令后，将会显示以下内容：
+
 ```log
 Saving debug log to
 /var/log/letsencrypt/letsencrypt.log
 Enter email address or hit Enter to skip.
  (Enter 'c' to cancel):
 ```
+
 可以输入你的邮箱，也可以直接按 `Enter` 跳过。
 
 然后出现以下内容：
@@ -142,12 +149,15 @@ If you like Certbot, please consider supporting our work by:
 ## 为 Nginx 安装证书
 
 在 Nginx `http` 块中添加这些内容：
+
 ```log
 ssl on;                                                       ssl_protocols TLSv1 TLSv1.1 TLSv1.2 TLSv1.3;
         ssl_prefer_server_ciphers on;
         ssl_certificate /etc/letsencrypt/live/这里换成你的域名/fullchain.pem;                                                        ssl_certificate_key /etc/letsencrypt/live/这里换成你的域名/privkey.pem;
 ```
+
 然后重启 Nginx。
+
 ## 证书续签
 
 使用以下命令测试配置是否正确：
@@ -164,13 +174,17 @@ Congratulations, all simulated renewals succeeded:
 ```
 
 然后执行 `sudo crontab -e`，并在打开的文件末尾加上这样一行并保存：
+
 ```crontab
  0 5 * * 1 certbot renew
 ```
- 之后会在每周一凌晨五点检查过期时间，如果剩余小于30天则会更新证书。
+
+之后会在每周一凌晨五点检查过期时间，如果剩余小于30天则会更新证书。
 
 证书更新后，需要重启 Nginx。如果你的 Nginx 也运行在这里，你可以改用下面这行：
+
 ```crontab
  0 5 * * 1 certbot renew —deploy-hook “systemctl restart nginx”
 ```
+
 这样续签完成后会自动重启 Nginx

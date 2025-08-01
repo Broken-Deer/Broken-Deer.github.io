@@ -1,6 +1,3 @@
 {
-  "origins": [
-    "https://broken-deer.github.io",
-    "https://Broken-Deer.github.io",
-  ],
+    "origins": ["https://broken-deer.github.io", "https://Broken-Deer.github.io"]
 }
