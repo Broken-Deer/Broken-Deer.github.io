@@ -5,11 +5,15 @@
       :author="frontmatter.author"
       v-if="frontmatter.author !== 'Broken-Deer'"
       style="margin-bottom: 16px" />
-    <div style="display: flex">
+    <div style="display: flex; margin-bottom: 48px">
       <ClientOnly>
-        <PostedDate :date="frontmatter.date" style="color: var(--palette-text)" />
+        <PostedDate
+          :date="frontmatter.date"
+          style="color: var(--palette-text); font-size: 0.9rem; margin-right: 8px" />
       </ClientOnly>
-      <ReadingTime :time="frontmatter.minutes" style="color: var(--palette-text)" />
+      <ReadingTime
+        :time="frontmatter.minutes"
+        style="font-size: 0.9rem; color: var(--palette-text)" />
     </div>
   </div>
 </template>

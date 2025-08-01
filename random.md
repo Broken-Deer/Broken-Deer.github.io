@@ -1,5 +1,6 @@
 ---
 title: Go to random page
+publish: false
 ---
 
 <script setup>

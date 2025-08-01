@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="reading-time">
-      <FontAwesomeIcon icon="fas fa-stopwatch" />预计用时: {{ time }} 分钟
+      <FontAwesomeIcon icon="fas fa-stopwatch" style="margin-right: 4px" />预计用时: {{ time }} 分钟
     </div>
   </div>
 </template>

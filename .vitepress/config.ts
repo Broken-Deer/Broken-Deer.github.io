@@ -26,6 +26,21 @@ export default defineConfig({
             { text: "Random", link: "/random" },
         ],
         socialLinks: [{ icon: "github", link: "https://github.com/Broken-Deer/" }],
+        search: {
+            provider: "local",
+        },
+        editLink: {
+            pattern: "https://github.com/Broken-Deer/Broken-Deer.github.io/edit/master/:path",
+            text: "在 GitHub 上编辑此页面",
+        },
+        lastUpdated: {
+            text: "最后更新于",
+        },
+        docFooter: {
+            prev: "上一篇",
+            next: "下一篇",
+        },
+        returnToTopLabel: "返回顶部",
         footer: {
             copyright: "Copyright © 2025-present Broken-Deer. All rights reserved.",
             message: "Content lisenced under CC BY-NC-SA 4.0 unless otherwise noted.",
