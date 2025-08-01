@@ -1,18 +1,16 @@
 <script setup lang="ts">
 import { useData } from "vitepress";
-import { ref } from "vue";
+import { onMounted, watch } from "vue";
 
-const { title } = useData();
+const { title, isDark } = useData();
 
-const theme = ref<"catppuccin_mocha" | "catppuccin_latte">("catppuccin_mocha");
-const key = ref(0);
-const updateGiscusTheme = () => {
+const setGiscusTheme = (theme: "catppuccin_mocha" | "catppuccin_latte") => {
   const iframe = document.querySelector("iframe.giscus-frame") as HTMLIFrameElement;
   iframe.contentWindow?.postMessage(
     {
       giscus: {
         setConfig: {
-          theme: theme.value,
+          theme: theme,
         },
       },
     },
@@ -20,23 +18,15 @@ const updateGiscusTheme = () => {
   );
 };
 const syncTheme = () => {
-  const html = document.documentElement;
-  theme.value = html.classList.contains("dark") ? "catppuccin_mocha" : "catppuccin_latte";
-  updateGiscusTheme();
+  setGiscusTheme(isDark.value ? "catppuccin_mocha" : "catppuccin_latte");
 };
-
-const observer = new MutationObserver(syncTheme);
-
-// Start observing the target node for configured mutations
-observer.observe(document.documentElement, { attributes: true });
-syncTheme();
+watch(isDark, syncTheme);
 </script>
 
 <template>
   <div :key="title" class="giscus">
     <component
       :is="'script'"
-      :key="key"
       src="https://giscus.app/client.js"
       data-repo="Broken-Deer/Broken-Deer.github.io"
       data-repo-id="R_kgDOOjed4A"
@@ -47,7 +37,7 @@ syncTheme();
       data-reactions-enabled="1"
       data-emit-metadata="0"
       data-input-position="top"
-      :data-theme="theme"
+      :data-theme="isDark ? 'catppuccin_mocha' : 'catppuccin_latte'"
       data-lang="zh-CN"
       crossorigin="anonymous"
       async />

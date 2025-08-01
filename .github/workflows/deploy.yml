@@ -12,7 +12,6 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -32,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: yarn install
       - name: Build with VitePress
-        run: yarn run docs:build
+        run: yarn run build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

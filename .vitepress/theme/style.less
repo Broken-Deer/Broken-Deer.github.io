@@ -165,59 +165,6 @@ html.dark {
     padding: 0;
 }
 
-ul.posts-list {
-    li {
-        list-style: none;
-        a {
-            text-decoration: none;
-            cursor: default;
-            p.title {
-                color: var(--palette-text);
-                font-size: 1.3rem;
-            }
-            .excerpt {
-                color: var(--palette-subtext0);
-            }
-        }
-        a,
-        a * {
-            transition: all 500ms ease;
-        }
-        a:hover,
-        a:hover * {
-            color: var(--palette-mauve) !important;
-        }
-        a.tag {
-            display: inline-flex;
-            margin-right: 8px;
-            padding: 4px 10px;
-            background-color: rgba(var(--palette-mauve-rgb), 0.1);
-            border-radius: 6px;
-            color: rgb(var(--palette-mauve-rgb));
-        }
-    }
-}
-html.dark ul.post-list {
-    li {
-        a {
-            p.title {
-                color: var(--palette-lavender);
-            }
-            .excerpt {
-                color: rgba(var(--palette-lavender-rgb), 0.7);
-            }
-        }
-        a:hover,
-        a:hover * {
-            color: var(--palette-mauve) !important;
-        }
-        a.tag {
-            background-color: rgba(var(--palette-mauve-rgb), 0.1);
-            color: rgb(var(--palette-mauve-rgb));
-        }
-    }
-}
-
 .VPNavBar .VPNavBarTitle .logo {
     border-radius: 9999px;
     overflow: hidden;

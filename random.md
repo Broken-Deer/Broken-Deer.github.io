@@ -2,12 +2,10 @@
 title: Go to random page
 ---
 
-#### 重定向...
-
 <script setup>
 import { onMounted } from 'vue'
 import { useRouter } from 'vitepress'
-import { data as posts } from './data/posts.data.mts'
+import { data as posts } from './.vitepress/theme/components/posts.data'
 
 const router = useRouter()
 

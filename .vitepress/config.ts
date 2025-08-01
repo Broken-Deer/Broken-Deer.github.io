@@ -1,4 +1,8 @@
 import { defineConfig } from "vitepress"
+
+import { defineConfig as defineViteConfig } from "vite"
+import { fileURLToPath, URL } from "node:url"
+import vue from "@vitejs/plugin-vue"
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
     title: "Broken-Deer's Blog",
@@ -23,4 +27,15 @@ export default defineConfig({
         },
         externalLinkIcon: true,
     },
+    vite: defineViteConfig({
+        resolve: {
+            alias: {
+                "@": fileURLToPath(new URL("./.vitepress", import.meta.url)),
+            },
+        },
+        build: {
+            minify: "esbuild",
+            target: "chrome89",
+        },
+    }),
 })
