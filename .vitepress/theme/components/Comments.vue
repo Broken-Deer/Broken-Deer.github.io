@@ -24,7 +24,7 @@ watch(isDark, syncTheme);
 </script>
 
 <template>
-  <div :key="title" class="giscus">
+  <div :key="title" class="giscus" style="padding-top: 32px">
     <component
       :is="'script'"
       src="https://giscus.app/client.js"
@@ -35,7 +35,7 @@ watch(isDark, syncTheme);
       data-mapping="pathname"
       data-strict="1"
       data-reactions-enabled="1"
-      data-emit-metadata="0"
+      data-emit-metadata="1"
       data-input-position="top"
       :data-theme="isDark ? 'catppuccin_mocha' : 'catppuccin_latte'"
       data-lang="zh-CN"

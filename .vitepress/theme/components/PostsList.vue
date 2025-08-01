@@ -38,6 +38,8 @@ const filteredPosts = computed(() => {
 
 <style lang="less" scoped>
 ul.posts-list {
+  padding-left: 16px;
+  padding-right: 16px;
   li {
     list-style: none;
     padding-bottom: 16px;
@@ -46,6 +48,7 @@ ul.posts-list {
       cursor: default;
       p.title {
         color: var(--palette-text);
+        font-weight: bold;
         font-size: 1.3rem;
       }
       .excerpt {

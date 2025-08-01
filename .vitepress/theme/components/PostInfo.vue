@@ -31,5 +31,6 @@ h1.title {
   font-size: 1.7rem;
   font-weight: bold;
   margin-bottom: 24px;
+  line-height: 1.5;
 }
 </style>
