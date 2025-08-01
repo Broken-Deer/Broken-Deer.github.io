@@ -27,6 +27,16 @@ export default defineConfig({
             light: "catppuccin-latte",
             dark: "catppuccin-mocha",
         },
+        container: {
+            tipLabel: "提示",
+            warningLabel: "警告",
+            dangerLabel: "危险",
+            infoLabel: "信息",
+            detailsLabel: "详细信息",
+        },
+        image: {
+            lazyLoading: true,
+        },
     },
     themeConfig: {
         logo: "/avatar.png",
@@ -47,8 +57,8 @@ export default defineConfig({
             text: "最后更新于",
         },
         docFooter: {
-            prev: "上一篇",
-            next: "下一篇",
+            prev: true,
+            next: true,
         },
         returnToTopLabel: "返回顶部",
         footer: {

@@ -438,9 +438,8 @@ vim.lsp.enable('lua_ls')
 
 现在虽然 LSP 已经能用了，但是有一堆 undefined，自动补全也不支持 Neovim 自带的函数。[lazydev](https://github.com/folke/lazydev.nvim) 插件可以为lua语言提供这些功能，其他有些语言也有相应的功能增强插件，比如 [mrcjkb/rustaceanvim](https://github.com/mrcjkb/rustaceanvim) 用于 Rust 语言。
 
-::: danger
-注意：如果使用此插件，请删除 `lsp.lua` 中的 `vim.lsp.enable('lua_ls')`，因为插件会自动调用这个函数.
-:::
+> [!NOTE]
+> 如果使用此插件，请删除 `lsp.lua` 中的 `vim.lsp.enable('lua_ls')`，因为插件会自动调用这个函数.
 
 示例配置：
 
