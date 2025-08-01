@@ -2,8 +2,13 @@ import { defineConfig } from "vitepress"
 
 import { defineConfig as defineViteConfig } from "vite"
 import { fileURLToPath, URL } from "node:url"
-import vue from "@vitejs/plugin-vue"
-// https://vitepress.dev/reference/site-config
+import { RSSOptions, RssPlugin } from "vitepress-plugin-rss"
+
+const RSS: RSSOptions = {
+    title: "Broken-Deer 的垃圾堆",
+    baseUrl: "https://Broken-Deer.github.io",
+    copyright: "Copyright © 2025-present Broken-Deer. All rights reserved.",
+}
 export default defineConfig({
     title: "Broken-Deer's Blog",
     description: "Broken-Deer 的垃圾堆",
@@ -28,6 +33,7 @@ export default defineConfig({
         externalLinkIcon: true,
     },
     vite: defineViteConfig({
+        plugins: [RssPlugin(RSS)],
         resolve: {
             alias: {
                 "@": fileURLToPath(new URL("./.vitepress", import.meta.url)),

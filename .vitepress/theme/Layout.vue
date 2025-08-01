@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import DefaultTheme from "vitepress/theme";
 import Comments from "./components/Comments.vue";
+import PostInfo from "./components/PostInfo.vue";
 import { useData } from "vitepress";
 
 const { Layout } = DefaultTheme;
@@ -49,6 +50,9 @@ provide("toggle-appearance", async ({ clientX: x, clientY: y }: MouseEvent) => {
       <ClientOnly>
         <Comments />
       </ClientOnly>
+    </template>
+    <template #doc-before>
+      <PostInfo />
     </template>
   </Layout>
 </template>

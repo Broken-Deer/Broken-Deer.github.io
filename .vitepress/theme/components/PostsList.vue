@@ -4,7 +4,10 @@
       <a :href="post.url" class="posts-list-entry">
         <p class="title">{{ post.frontmatter.title }}</p>
         <ClientOnly>
-          <PostedDate :date="post.frontmatter.date" />
+          <div style="display: flex">
+            <PostedDate :date="post.frontmatter.date" class="post-data" style="margin-right: 8px" />
+            <ReadingTime :time="post.frontmatter.minutes" class="post-data" />
+          </div>
         </ClientOnly>
         <div class="excerpt" v-html="post.frontmatter.description" style="margin-top: 12px"></div>
       </a>
@@ -20,6 +23,7 @@
 import { computed } from "vue";
 import { data as posts } from "./posts.data";
 import PostedDate from "./PostedDate.vue";
+import ReadingTime from "./ReadingTime.vue";
 const props = defineProps<{
   filterTags?: string[];
 }>();
@@ -36,6 +40,7 @@ const filteredPosts = computed(() => {
 ul.posts-list {
   li {
     list-style: none;
+    padding-bottom: 16px;
     a {
       text-decoration: none;
       cursor: default;
@@ -45,6 +50,7 @@ ul.posts-list {
       }
       .excerpt {
         color: var(--palette-subtext0);
+        line-height: 1.5;
       }
     }
     a,
@@ -84,5 +90,10 @@ html.dark ul.post-list {
       color: rgb(var(--palette-mauve-rgb));
     }
   }
+}
+
+.post-data {
+  color: rgb(var(--palette-lavender-rgb));
+  font-size: 0.9rem;
 }
 </style>
