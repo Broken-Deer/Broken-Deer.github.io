@@ -1,0 +1,18 @@
+Broken-Deer.github.io
+=====================
+
+This is my personal blog built with VitePress and Catppuccin theme. All
+blog posts are stored in the posts/ directory as Markdown files. The 
+formatted posts can be read online:
+
+    https://broken-deer.github.io
+
+The codes are licensed under GPL-3.0, and the posts are licensed under 
+CC BY-NC-SA 4.0, for more information, please read:
+
+    https://www.gnu.org/licenses/gpl-3.0.txt
+    https://creativecommons.org/licenses/by-nc-sa/4.0/
+
+You can edit these posts or codes via Pull Requests. Run ``yarn dev``
+to launch development server, or run ``yarn build`` to build.
+
