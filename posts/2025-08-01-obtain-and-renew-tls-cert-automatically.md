@@ -46,28 +46,28 @@ const { isDark } = useData()
 </script>
 
 登录你的帐户，检查一下是否有权访问域名，然后右上角点击 `配置文件`
-<img v-if="isDark" src="/img/IMG_20250801_231223.jpg">
-<img v-else src="/img/IMG_20250801_220452.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231223.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_220452.jpg">
 
 选择左侧的 `API 令牌`，选择 `创建令牌`
-<img v-if="isDark" src="/img/IMG_20250801_231253.jpg">
-<img v-else src="/img/IMG_20250801_222012.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231253.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_222012.jpg">
 
 选择 `使用模板`
-<img v-if="isDark" src="/img/IMG_20250801_231325.jpg">
-<img v-else src="/img/IMG_20250801_222028.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231325.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_222028.jpg">
 
 `区域资源` 下面选择 `所有区域`，然后点击 `继续以显示摘要`
-<img v-if="isDark" src="/img/IMG_20250801_231411.jpg">
-<img v-else src="/img/IMG_20250801_221127.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231411.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_221127.jpg">
 
 然后点击 `创建令牌`
-<img v-if="isDark" src="/img/IMG_20250801_231442.jpg">
-<img v-else src="/img/IMG_20250801_222050.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231442.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_222050.jpg">
 
 最后点击 `Copy`，复制你的 API 令牌，下一步要用
-<img v-if="isDark" src="/img/IMG_20250801_231510.jpg">
-<img v-else src="/img/IMG_20250801_222101.jpg">
+<img class="rounded" v-if="isDark" src="/img/IMG_20250801_231510.jpg">
+<img class="rounded" v-else src="/img/IMG_20250801_222101.jpg">
 
 :::warning
 此处的 API 令牌仅在创建时可以查看，如果没保存就关闭就需要重新创建 API 令牌。
