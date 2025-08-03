@@ -14,7 +14,7 @@ tags:
 
 [Let's Encrypt](https://letsencrypt.org/) 的免费证书只有90天有效期，你是否经常忘了续签？本文将手把手教你使用[Certbot](https://certbot.eff.org/) 并设置自动续签，一劳永逸解决证书过期问题。
 
-不同于其他大多数文章，本文使用 Cloudflare 完成域名所有权验证，好处是能申请通配符证书，但要求域名必须托管在 Cloudflare 上。
+不同于其他大多数文章，本文使用 Cloudflare 完成域名所有权验证，好处是 Certbot 与 Web 服务器不需要安装在同一个服务器，但要求域名必须托管在 Cloudflare 上。
 
 > [!TIP]
 > 你也可以使用 acme.sh，可以参考[这篇文章](https://rene8028.github.io/posts/eca92ea3.html)
@@ -69,6 +69,10 @@ const { isDark } = useData()
 <img v-if="isDark" src="/img/IMG_20250801_231510.jpg">
 <img v-else src="/img/IMG_20250801_222101.jpg">
 
+:::warning
+此处的 API 令牌仅在创建时可以查看，如果没保存就关闭就需要重新创建 API 令牌。
+:::
+
 ## 创建 Cloudflare 配置文件
 
 首先创建一个配置文件，用来保存 Cloudflare API 相关参数。将以下内容写入 `/etc/letsencrypt/cloudflare.conf` 中，dns_cloudflare_api_token后面改成上一步复制的 API 令牌。
@@ -79,7 +83,7 @@ dns_cloudflare_api_token = xxxxxxxxxxx
 
 ## 获取证书
 
-示例命令：
+示例命令（`-d` 后面自己换成你的域名）:：
 
 ```shell
 sudo certbot certonly \
@@ -87,12 +91,8 @@ sudo certbot certonly \
 --dns-cloudflare-credentials /etc/letsencrypt/cloudflare.conf \
 --dns-cloudflare-propagation-seconds 60 \
 --preferred-challenges dns \
--d "brkdr.dpdns.org" \
--d "*.brkdr.dpdns.org" \
--d "v4bkd.dpdns.org" \
--d "*.v4bkd.dpdns.org" \
--d "v6bkd.dpdns.org" \
--d "*.v6bkd.dpdns.org"
+-d "xxxx.com" \
+-d "*.xxxx.xom" \
 ```
 
 参数解释：
@@ -187,4 +187,4 @@ Congratulations, all simulated renewals succeeded:
  0 5 * * 1 certbot renew —deploy-hook “systemctl restart nginx”
 ```
 
-这样续签完成后会自动重启 Nginx
+这样续签完成后会自动重启 Nginx，你也可以编写脚本实现更复杂的功能，比如重启其他服务器上的服务。
