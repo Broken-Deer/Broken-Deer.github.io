@@ -21,7 +21,7 @@ tags:
 
 **问题是这一堆玩意没法拆分，看着太恶心了：**
 
-图1，恶心的 main函数
+![](/img/Screenshot-2025-08-06-07-28-34.png)
 
 于是我在GitHub上搜索，不少人也有类似的感受，比如[这个](https://github.com/tauri-apps/tauri/discussions/13085)，里面的回答提到了可以把模块写成 Tauri 插件，于是我就产生了重构的想法。
 
