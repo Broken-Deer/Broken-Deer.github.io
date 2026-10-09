@@ -86,4 +86,4 @@ Conic Launcher 是一个我已经开发三年半的 Minecraft 启动器项目。
 
 ## 测试反馈
 
-目前项目仍然处于 Alpha 阶段，可能存在较多 bug，你可以从 GitHub Release 下载最新发布的 Alpha 版本体验一下，或加入 QQ 群 1108781078 参与测试。如果你也能参与开发，那就更好了！
+目前项目仍然处于 Alpha 阶段，可能存在较多 bug，你可以从 GitHub Release 下载最新发布的 Alpha 版本体验一下，或加入 [Discord 服务器](https://discord.gg/xWKY5NMuf7) 参与讨论。如果你也能参与开发，那就更好了！
