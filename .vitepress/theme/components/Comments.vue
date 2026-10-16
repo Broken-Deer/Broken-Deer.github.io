@@ -28,7 +28,7 @@ watch(isDark, syncTheme);
     <component
       :is="'script'"
       src="https://giscus.app/client.js"
-      data-repo="OakChaser/OakChaser.github.io"
+      data-repo="OakChaser/blog"
       data-repo-id="R_kgDOPWDMXg"
       data-category="Announcements"
       data-category-id="DIC_kwDOPWDMXs4CtosD"
